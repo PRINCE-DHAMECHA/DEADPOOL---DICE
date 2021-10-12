@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Acme', sans-serif;
+        }
+
+        body {
+            background-image: url('DESk/12823.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position:center;
+        }
+
+        .container {
+            width: 60%;
+            text-align: center;
+        }
+
+        .dice {
+            text-align: center;
+        }
+
+        .dices {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            margin: 30px;
+            text-shadow: 2px 0 white;
+            font-size: 4rem;
+            color: #85050a;
+        }
+
+        p {
+            font-size: 3rem;
+            color: rgb(84, 226, 84);
+            margin-bottom: 1rem;
+        }
+
+        button {
+            padding: 10px;
+            background: #85050a;
+            color: white;
+            border: none;
+            width: 8rem;
+            height: 4rem;
+            margin-top: 3rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        img {
+            width: 60%;
+            background-color: rgb(252, 55, 55);
+            border-radius: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JS LUDO</h1>
+        <div class="dices">
+            <div class="dice">
+                <p>PLAYER-1</p>
+                <img src="desk/1.png" alt="" id="check1">
+            </div>
+            <div class="dice">
+                <p>PLAYER-1</p>
+                <img src="desk/1.png" alt="" id="check2">
+            </div>
+        </div>
+        <button onclick="dice()">CLICK ME</button>
+    </div>
+
+
+    <script>
+        dice = () => {
+            const play1 = Math.floor(Math.random() * 6) + 1;
+            const play1dice = `DESK/${play1}.png`;
+            document.getElementById('check1').setAttribute('src', play1dice);
+            const play2 = Math.floor(Math.random() * 6) + 1;
+            const play2dice = `DESK/${play2}.png`;
+            document.getElementById('check2').setAttribute('src', play2dice);
+            if (play1 > play2) {
+                document.querySelector('h1').innerHTML = "PLAYER - 1 WON";
+            }
+            else if (play2 > play1) {
+                document.querySelector('h1').innerHTML = "PLAYER - 2 WON";
+            }
+            else {
+                document.querySelector('h1').innerHTML = "DRAW";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
